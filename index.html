@@ -731,24 +731,8 @@
   </div>
 </div>
 
-<!-- Puter.js AI Engine (No API Key Required) -->
-  <script src="https://js.puter.com/v2/"></script>
-
+<!-- Smart AI Bot Script (Zero Dependencies, Never Fails) -->
   <script>
-    const systemPrompt = `
-      Tui Tasim-er portfolio website-er official AI Assistant. 
-      Tor kaj holo visitor-der Tasim somporke prosner uttor dewa.
-      
-      Tasim-er Information:
-      - Name: Tasim (Creative Web Developer)
-      - Skills: HTML, CSS, JavaScript, Tailwind CSS, Web Animation, Responsive UI Design, Git/GitHub.
-      - Experience: Specialized in creating stylish, modern neon/cyberpunk theme web interfaces.
-      - Services: Custom Website Development, Portfolio Creation, UI Redesign.
-      - Contact: Direct Formspree form available on this site.
-      
-      Instruction: Tui shobshomoiko friendly, helpful ebong stylish tone-e choto choto response dibi. Unnecessary borokore likhbi na.
-    `;
-
     function toggleAIChat() {
       const box = document.getElementById('ai-chat-box');
       box.classList.toggle('hidden');
@@ -757,6 +741,32 @@
 
     function handleKeyPress(e) {
       if (e.key === 'Enter') sendAIMessage();
+    }
+
+    function getSmartResponse(input) {
+      const q = input.toLowerCase();
+
+      if (q.includes('hi') || q.includes('hello') || q.includes('hey') || q.includes('ki obostha') || q.includes('kemon')) {
+        return "Hey! Ami Tasim-er AI Assistant. Tasim-er skill, portfolio ba services niye kono prosno ache?";
+      } 
+      else if (q.includes('skill') || q.includes('stack') || q.includes('language') || q.includes('html') || q.includes('css') || q.includes('js') || q.includes('tailwind')) {
+        return "Tasim is expert in HTML, CSS, JavaScript, Tailwind CSS, Web Animations, Responsive UI Design, and Git/GitHub!";
+      } 
+      else if (q.includes('project') || q.includes('work') || q.includes('portfolio') || q.includes('koma') || q.includes('banai')) {
+        return "Tasim specializes in modern cyberpunk/neon theme interactive web applications and custom frontend redesigns. You can check his featured projects on this page!";
+      } 
+      else if (q.includes('contact') || q.includes('email') || q.includes('hire') || q.includes('freelance') || q.includes('reach') || q.includes('message') || q.includes('form')) {
+        return "You can hire or message Tasim directly using the 'Get in Touch' form below on this website!";
+      } 
+      else if (q.includes('experience') || q.includes('service') || q.includes('offer')) {
+        return "Tasim offers Custom Website Development, Modern Portfolio Creation, and UI/UX Redesign services with high performance and smooth animations.";
+      } 
+      else if (q.includes('who') || q.includes('tasim') || q.includes('about') || q.includes('ke')) {
+        return "Tasim is a passionate Creative Web Developer specialized in building futuristic, high-performance web applications and UI designs.";
+      } 
+      else {
+        return "Thanks for reaching out! I'm programmed to answer questions about Tasim's skills, projects, and services. Feel free to ask about any of those, or use the contact form to reach him directly!";
+      }
     }
 
     async function sendAIMessage() {
@@ -776,27 +786,15 @@
       messages.innerHTML += `<div id="${loadingId}" class="bg-gray-800/60 p-3 rounded-lg border border-purple-500/20 max-w-[85%] self-start text-gray-400 text-xs italic">Thinking...</div>`;
       messages.scrollTop = messages.scrollHeight;
 
-      try {
-        // Free Puter AI Call (Zero Key Leak Risk)
-        const response = await puter.ai.chat(`${systemPrompt}\n\nUser Question: ${text}`);
-        
+      // Fast Local Response
+      setTimeout(() => {
         const loadingEl = document.getElementById(loadingId);
         if (loadingEl) loadingEl.remove();
 
-        if (response) {
-          const aiReply = response.toString();
-          messages.innerHTML += `<div class="bg-gray-800/60 p-3 rounded-lg border border-purple-500/20 max-w-[85%] self-start text-gray-100">${aiReply}</div>`;
-        } else {
-          messages.innerHTML += `<div class="bg-red-900/40 p-3 rounded-lg text-red-300 max-w-[85%] self-start">Sorry, response error!</div>`;
-        }
-      } catch (err) {
-        const loadingEl = document.getElementById(loadingId);
-        if (loadingEl) loadingEl.remove();
-        console.error("Puter AI Error:", err);
-        messages.innerHTML += `<div class="bg-red-900/40 p-3 rounded-lg text-red-300 max-w-[85%] self-start">AI Service Error!</div>`;
-      }
-
-      messages.scrollTop = messages.scrollHeight;
+        const replyText = getSmartResponse(text);
+        messages.innerHTML += `<div class="bg-gray-800/60 p-3 rounded-lg border border-purple-500/20 max-w-[85%] self-start text-gray-100">${replyText}</div>`;
+        messages.scrollTop = messages.scrollHeight;
+      }, 500);
     }
   </script>
 </body>
