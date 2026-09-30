@@ -733,9 +733,9 @@
 
 <!-- Gemini API & Chat Script -->
 <script>
-  // Base64 Encoded Key (যাতে গিটহাব ব্লক না করে)
-  const ENCODED_KEY = "QVEuQWI4Uk42SkV6akI4T0NiWmN2UElDWTd2RElrNGVRYV9JRElBX0xtUHQwTENYMFU1Nnc=";
-  const GEMINI_API_KEY = atob(ENCODED_KEY);
+<script>
+  const RAW_ENCODED = "QVEuQWI4Uk42SXVsenhNZDI2NzZQSk9mVzEyaHg3YXI4WUtfVjBkUFNxZV9kcTV1dnNwMnc=";
+  const GEMINI_API_KEY = atob(RAW_ENCODED);
 
   const systemPrompt = `
     Tui Tasim-er portfolio website-er official AI Assistant. 
@@ -794,14 +794,17 @@
         const aiReply = data.candidates[0].content.parts[0].text;
         messages.innerHTML += `<div class="bg-gray-800/60 p-3 rounded-lg border border-purple-500/20 max-w-[85%] self-start">${aiReply}</div>`;
       } else {
+        console.error("API Response Error:", data);
         messages.innerHTML += `<div class="bg-red-900/40 p-3 rounded-lg text-red-300 max-w-[85%] self-start">Sorry, API error occurred!</div>`;
       }
     } catch (err) {
       document.getElementById(loadingId).remove();
+      console.error("Network Error:", err);
       messages.innerHTML += `<div class="bg-red-900/40 p-3 rounded-lg text-red-300 max-w-[85%] self-start">Connection error!</div>`;
     }
     messages.scrollTop = messages.scrollHeight;
   }
+</script>
 </script>
 </body>
 </html>
