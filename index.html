@@ -108,6 +108,636 @@
     </style>
 </head>
 <body class="bg-cyber-darker text-gray-100 antialiased relative min-h-screen selection:bg-cyber-cyan selection:text-black dark">
+    <!-- ================================================================= -->
+<!-- TASIM QUANTUM ARCHIVERSE - FULL WORKING SINGLE FILE               -->
+<!-- ================================================================= -->
+
+<div id="quantum-archiverse-root" class="relative w-full min-h-[900px] bg-[#030712] rounded-3xl border border-cyan-500/20 overflow-hidden shadow-[0_0_100px_rgba(6,182,212,0.15)] my-12 text-slate-100 font-mono select-none">
+  
+  <!-- Canvas Layer -->
+  <canvas id="archiverseCanvas" class="absolute inset-0 w-full h-full cursor-crosshair z-10"></canvas>
+
+  <!-- Cyber Scanline Overlay -->
+  <div class="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.35)_50%)] bg-[size:100%_4px] pointer-events-none z-20 opacity-60"></div>
+
+  <!-- Ambient Grid -->
+  <div class="absolute inset-0 bg-[linear-gradient(to_right,#082f49_1px,transparent_1px),linear-gradient(to_bottom,#082f49_1px,transparent_1px)] bg-[size:3.5rem_3.5rem] [mask-image:radial-gradient(ellipse_75%_75%_at_50%_50%,#000_70%,transparent_100%)] opacity-25 pointer-events-none z-20"></div>
+
+  <!-- Master UI Control HUD Layer -->
+  <div class="relative z-30 p-6 md:p-10 flex flex-col justify-between h-full min-h-[900px] pointer-events-none">
+    
+    <!-- Top Nav & Status Bar -->
+    <div class="flex flex-wrap items-center justify-between gap-4 pointer-events-auto">
+      <div class="flex items-center gap-3 bg-slate-900/90 backdrop-blur-xl px-5 py-2.5 rounded-2xl border border-cyan-500/30 shadow-[0_0_20px_rgba(6,182,212,0.15)]">
+        <span class="relative flex h-3.5 w-3.5">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-3.5 w-3.5 bg-cyan-500"></span>
+        </span>
+        <div class="flex flex-col">
+          <span class="text-[10px] text-slate-400 tracking-widest leading-none">CORE ENGINE</span>
+          <span class="text-xs font-bold text-cyan-400 tracking-wider">TASIM_ARCHIVERSE_v5.0</span>
+        </div>
+      </div>
+
+      <!-- Mode Selector -->
+      <div class="flex flex-wrap items-center gap-2 bg-slate-900/90 backdrop-blur-xl p-2 rounded-2xl border border-slate-800 shadow-2xl">
+        <button onclick="window.ArchiverseEngine.setMode('QUANTUM_CORE')" id="btn-mode-core" class="px-4 py-2 text-xs font-bold rounded-xl transition-all border border-cyan-500/40 bg-cyan-950/60 text-cyan-300 shadow-[0_0_15px_rgba(6,182,212,0.2)]">
+          QUANTUM_CORE
+        </button>
+        <button onclick="window.ArchiverseEngine.setMode('MATRIX_RAIN')" id="btn-mode-matrix" class="px-4 py-2 text-xs font-bold rounded-xl transition-all border border-transparent hover:border-fuchsia-500/40 text-slate-400 hover:text-fuchsia-300">
+          MATRIX_CASCADE
+        </button>
+        <button onclick="window.ArchiverseEngine.setMode('NEURAL_NET')" id="btn-mode-neural" class="px-4 py-2 text-xs font-bold rounded-xl transition-all border border-transparent hover:border-teal-500/40 text-slate-400 hover:text-teal-300">
+          NEURAL_NET
+        </button>
+        <button onclick="window.ArchiverseEngine.setMode('BLACK_HOLE')" id="btn-mode-singularity" class="px-4 py-2 text-xs font-bold rounded-xl transition-all border border-transparent hover:border-amber-500/40 text-slate-400 hover:text-amber-300">
+          SINGULARITY
+        </button>
+      </div>
+
+      <!-- Audio Toggle Button -->
+      <button onclick="window.ArchiverseEngine.toggleAudio()" id="btn-audio-toggle" class="flex items-center gap-2 bg-slate-900/90 backdrop-blur-xl px-4 py-2.5 rounded-2xl border border-slate-800 text-xs text-slate-400 hover:text-cyan-400 hover:border-cyan-500/30 transition-all">
+        <span id="audio-icon">🔇</span>
+        <span id="audio-text" class="font-bold">AUDIO_OFF</span>
+      </button>
+    </div>
+
+    <!-- Hero Cards Section (Portfolio Integration) -->
+    <div class="my-auto py-12 flex flex-col items-center text-center pointer-events-none">
+      <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-cyan-950/70 border border-cyan-500/40 text-cyan-300 text-xs font-bold mb-6 backdrop-blur-md shadow-[0_0_30px_rgba(6,182,212,0.25)] tracking-widest uppercase">
+        <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+        FEATURED INTERACTIVE MODULE // TASIM PORTFOLIO
+      </div>
+
+      <h1 class="text-4xl md:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-fuchsia-400 to-amber-300 tracking-wider uppercase drop-shadow-[0_0_50px_rgba(6,182,212,0.4)]">
+        QUANTUM ARCHIVERSE
+      </h1>
+
+      <p class="text-slate-400 text-xs md:text-sm mt-5 max-w-2xl leading-relaxed bg-slate-950/60 p-4 rounded-2xl border border-slate-800/80 backdrop-blur-sm">
+        Next-generation visual rendering engine with high-density particle dynamics, spatial warp vectors, live Web Audio synthesizer, and reactive gravitational force-fields.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-3xl mt-8 pointer-events-auto text-left">
+        <!-- Project Card 1 -->
+        <div class="bg-slate-900/80 backdrop-blur-xl p-6 rounded-2xl border border-slate-800 hover:border-cyan-500/50 transition-all group hover:shadow-[0_0_30px_rgba(6,182,212,0.2)]">
+          <div class="text-[10px] text-fuchsia-400 font-bold uppercase tracking-wider mb-1">INTERACTIVE SIMULATION</div>
+          <h3 class="text-xl font-extrabold text-slate-100 group-hover:text-cyan-400 transition-colors">Matrix Cyber Rain</h3>
+          <p class="text-slate-400 text-xs mt-2 leading-relaxed">High-performance canvas code stream with audio frequency reactive particles.</p>
+          <div class="flex items-center justify-between mt-4">
+            <span class="text-[10px] text-slate-500">HTML / Canvas / JS Engine</span>
+            <button onclick="window.ArchiverseEngine.triggerPulse(event)" class="text-xs font-bold text-cyan-400 bg-cyan-950/60 px-3 py-1.5 rounded-lg border border-cyan-500/30 hover:bg-cyan-900">
+              Trigger Matrix Burst ↗
+            </button>
+          </div>
+        </div>
+
+        <!-- Project Card 2 -->
+        <div class="bg-slate-900/80 backdrop-blur-xl p-6 rounded-2xl border border-slate-800 hover:border-fuchsia-500/50 transition-all group hover:shadow-[0_0_30px_rgba(217,70,239,0.2)]">
+          <div class="text-[10px] text-cyan-400 font-bold uppercase tracking-wider mb-1">CANVAS & WEB AUDIO API</div>
+          <h3 class="text-xl font-extrabold text-slate-100 group-hover:text-fuchsia-400 transition-colors">Cosmic Lab & Physics Core</h3>
+          <p class="text-slate-400 text-xs mt-2 leading-relaxed">Interactive particle gravitational simulator with synthetic audio oscillator feedback.</p>
+          <div class="flex items-center justify-between mt-4">
+            <span class="text-[10px] text-slate-500">JS / Web Audio / Spatial Math</span>
+            <button onclick="window.ArchiverseEngine.triggerSingularityBurst()" class="text-xs font-bold text-fuchsia-400 bg-fuchsia-950/60 px-3 py-1.5 rounded-lg border border-fuchsia-500/30 hover:bg-fuchsia-900">
+              Spawn Singularity ↗
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Console Terminal Stats HUD -->
+    <div class="flex flex-col gap-4 pointer-events-auto">
+      <div class="bg-slate-900/90 backdrop-blur-md px-4 py-2.5 rounded-xl border border-slate-800 text-xs text-slate-400 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <span class="text-fuchsia-400 font-bold">&gt;_ SYSTEM_LOG:</span>
+          <span id="terminal-status-log" class="text-cyan-300 font-bold animate-pulse">Initializing Archiverse Subsystems...</span>
+        </div>
+        <div class="flex items-center gap-4 text-[10px] text-slate-500">
+          <span>MEM: <strong class="text-slate-300" id="stat-mem">128MB</strong></span>
+          <span>LATENCY: <strong class="text-slate-300" id="stat-latency">1.2ms</strong></span>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 bg-slate-900/90 backdrop-blur-xl p-4 rounded-2xl border border-slate-800">
+        <div class="flex flex-col border-r border-slate-800 pr-2">
+          <span class="text-[10px] text-slate-500">ACTIVE PARTICLES</span>
+          <span id="hud-particle-count" class="text-cyan-400 font-bold text-sm md:text-base">0</span>
+        </div>
+        <div class="flex flex-col border-r border-slate-800 pr-2">
+          <span class="text-[10px] text-slate-500">FRAME RATE</span>
+          <span id="hud-fps-count" class="text-fuchsia-400 font-bold text-sm md:text-base">60 FPS</span>
+        </div>
+        <div class="flex flex-col border-r border-slate-800 pr-2">
+          <span class="text-[10px] text-slate-500">FORCE FIELD</span>
+          <span id="hud-force-mode" class="text-teal-400 font-bold text-sm md:text-base">REPEL_MODE</span>
+        </div>
+        <div class="flex items-center justify-end gap-2">
+          <button onclick="window.ArchiverseEngine.toggleGravity()" class="px-3 py-2 rounded-xl bg-cyan-950 border border-cyan-500/40 text-cyan-300 hover:bg-cyan-900 text-xs font-bold transition-all shadow-[0_0_15px_rgba(6,182,212,0.15)]">
+            TOGGLE GRAV
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- MAIN ENGINE SCRIPT -->
+<script>
+(function() {
+  const root = document.getElementById('quantum-archiverse-root');
+  const canvas = document.getElementById('archiverseCanvas');
+
+  if (root && canvas) {
+    const ctx = canvas.getContext('2d');
+    let width = 0;
+    let height = 0;
+
+    const ARCHIVERSE_STATE = {
+      mode: 'QUANTUM_CORE',
+      audioEnabled: false,
+      forceAttract: false,
+      targetParticleCount: 160,
+      speedMultiplier: 1.2,
+      baseColorHex: '#06b6d4',
+      accentColorHex: '#d946ef',
+      fps: 60,
+      frameCount: 0,
+      lastTimestamp: performance.now()
+    };
+
+    const pointer = { x: null, y: null, radius: 250 };
+
+    let particleContainer = [];
+    let matrixColumnContainer = [];
+    let shockwaveContainer = [];
+    let floatingHexContainer = [];
+
+    class QuantumAudioSynth {
+      constructor() {
+        this.audioCtx = null;
+        this.masterGain = null;
+        this.initialized = false;
+      }
+
+      init() {
+        if (this.initialized) return;
+        try {
+          const AudioCtx = window.AudioContext || window.webkitAudioContext;
+          this.audioCtx = new AudioCtx();
+          this.masterGain = this.audioCtx.createGain();
+          this.masterGain.gain.setValueAtTime(0.08, this.audioCtx.currentTime);
+          this.masterGain.connect(this.audioCtx.destination);
+          this.initialized = true;
+          logTerminal('Web Audio Synthesizer Engine Initialized.');
+        } catch (e) {
+          logTerminal('Audio API error.');
+        }
+      }
+
+      playParticleTone(freq, type = 'sine', duration = 0.15) {
+        if (!this.initialized || !ARCHIVERSE_STATE.audioEnabled) return;
+        try {
+          const osc = this.audioCtx.createOscillator();
+          const noteGain = this.audioCtx.createGain();
+          osc.type = type;
+          osc.frequency.setValueAtTime(freq, this.audioCtx.currentTime);
+          noteGain.gain.setValueAtTime(0, this.audioCtx.currentTime);
+          noteGain.gain.linearRampToValueAtTime(0.05, this.audioCtx.currentTime + 0.02);
+          noteGain.gain.exponentialRampToValueAtTime(0.0001, this.audioCtx.currentTime + duration);
+          osc.connect(noteGain);
+          noteGain.connect(this.masterGain);
+          osc.start();
+          osc.stop(this.audioCtx.currentTime + duration);
+        } catch (err) {}
+      }
+
+      playShockwavePulse() {
+        if (!this.initialized || !ARCHIVERSE_STATE.audioEnabled) return;
+        try {
+          const osc = this.audioCtx.createOscillator();
+          const gain = this.audioCtx.createGain();
+          osc.type = 'sawtooth';
+          osc.frequency.setValueAtTime(180, this.audioCtx.currentTime);
+          osc.frequency.exponentialRampToValueAtTime(30, this.audioCtx.currentTime + 0.4);
+          gain.gain.setValueAtTime(0.15, this.audioCtx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.001, this.audioCtx.currentTime + 0.4);
+          osc.connect(gain);
+          gain.connect(this.masterGain);
+          osc.start();
+          osc.stop(this.audioCtx.currentTime + 0.4);
+        } catch (err) {}
+      }
+    }
+
+    const audioSynth = new QuantumAudioSynth();
+
+    const MathEngine = {
+      getDistance(x1, y1, x2, y2) {
+        const dx = x2 - x1;
+        const dy = y2 - y1;
+        return Math.sqrt(dx * dx + dy * dy);
+      },
+      getAngle(x1, y1, x2, y2) {
+        return Math.atan2(y2 - y1, x2 - x1);
+      },
+      randomRange(min, max) {
+        return Math.random() * (max - min) + min;
+      },
+      hexToRgbA(hex, alpha = 1) {
+        let c;
+        if (/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)) {
+          c = hex.substring(1).split('');
+          if (c.length === 3) c = [c[0], c[0], c[1], c[1], c[2], c[2]];
+          c = '0x' + c.join('');
+          return `rgba(${[(c >> 16) & 255, (c >> 8) & 255, c & 255].join(',')},${alpha})`;
+        }
+        return `rgba(6, 182, 212, ${alpha})`;
+      }
+    };
+
+    function logTerminal(msg) {
+      const logEl = document.getElementById('terminal-status-log');
+      if (logEl) logEl.innerText = msg;
+    }
+
+    class QuantumParticle {
+      constructor(w, h) {
+        this.reset(w, h);
+      }
+
+      reset(w, h) {
+        this.x = MathEngine.randomRange(0, w);
+        this.y = MathEngine.randomRange(0, h);
+        this.vx = MathEngine.randomRange(-1.5, 1.5);
+        this.vy = MathEngine.randomRange(-1.5, 1.5);
+        this.baseSize = MathEngine.randomRange(1.2, 3.2);
+        this.size = this.baseSize;
+        this.color = Math.random() > 0.45 ? ARCHIVERSE_STATE.baseColorHex : (Math.random() > 0.5 ? ARCHIVERSE_STATE.accentColorHex : '#14b8a6');
+        this.angle = MathEngine.randomRange(0, Math.PI * 2);
+        this.alpha = MathEngine.randomRange(0.3, 0.95);
+      }
+
+      update(w, h) {
+        if (ARCHIVERSE_STATE.mode === 'BLACK_HOLE') {
+          const centerX = w / 2;
+          const centerY = h / 2;
+          const dist = MathEngine.getDistance(this.x, this.y, centerX, centerY);
+
+          this.angle += (0.01 + (250 / (dist + 30)) * 0.005) * ARCHIVERSE_STATE.speedMultiplier;
+          const speed = 1.2 * ARCHIVERSE_STATE.speedMultiplier;
+
+          this.x = centerX + Math.cos(this.angle) * (dist - speed);
+          this.y = centerY + Math.sin(this.angle) * (dist - speed);
+
+          if (dist < 10 || dist > Math.max(w, h)) {
+            this.reset(w, h);
+            this.x = centerX + Math.cos(this.angle) * (MathEngine.randomRange(250, 500));
+            this.y = centerY + Math.sin(this.angle) * (MathEngine.randomRange(250, 500));
+          }
+        } else {
+          this.x += this.vx * ARCHIVERSE_STATE.speedMultiplier;
+          this.y += this.vy * ARCHIVERSE_STATE.speedMultiplier;
+
+          if (this.x < 0 || this.x > w) this.vx *= -1;
+          if (this.y < 0 || this.y > h) this.vy *= -1;
+        }
+
+        if (pointer.x !== null && pointer.y !== null) {
+          const dist = MathEngine.getDistance(this.x, this.y, pointer.x, pointer.y);
+
+          if (dist < pointer.radius) {
+            const force = (pointer.radius - dist) / pointer.radius;
+            const angle = MathEngine.getAngle(this.x, this.y, pointer.x, pointer.y);
+            const moveFactor = force * 7 * ARCHIVERSE_STATE.speedMultiplier;
+
+            if (ARCHIVERSE_STATE.forceAttract) {
+              this.x += Math.cos(angle) * moveFactor;
+              this.y += Math.sin(angle) * moveFactor;
+            } else {
+              this.x -= Math.cos(angle) * moveFactor;
+              this.y -= Math.sin(angle) * moveFactor;
+            }
+
+            this.size = this.baseSize + force * 5;
+            if (Math.random() < 0.02) {
+              audioSynth.playParticleTone(300 + force * 600, 'sine', 0.08);
+            }
+          } else {
+            if (this.size > this.baseSize) this.size -= 0.15;
+          }
+        }
+      }
+
+      draw(cCtx) {
+        cCtx.beginPath();
+        cCtx.arc(this.x, this.y, Math.max(0.1, this.size), 0, Math.PI * 2);
+        cCtx.fillStyle = MathEngine.hexToRgbA(this.color, this.alpha);
+        cCtx.shadowBlur = 14;
+        cCtx.shadowColor = this.color;
+        cCtx.fill();
+        cCtx.shadowBlur = 0;
+      }
+    }
+
+    const matrixChars = 'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズブヅプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッン0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ<>/{}[]*=+#$@!';
+
+    class MatrixRainColumn {
+      constructor(x, h) {
+        this.x = x;
+        this.y = MathEngine.randomRange(-1000, 0);
+        this.speed = MathEngine.randomRange(5, 12) * ARCHIVERSE_STATE.speedMultiplier;
+        this.fontSize = Math.floor(MathEngine.randomRange(11, 17));
+      }
+
+      update(h) {
+        this.y += this.speed * ARCHIVERSE_STATE.speedMultiplier;
+        if (this.y > h + 150) {
+          this.y = MathEngine.randomRange(-300, -50);
+          this.speed = MathEngine.randomRange(5, 12) * ARCHIVERSE_STATE.speedMultiplier;
+        }
+      }
+
+      draw(cCtx) {
+        cCtx.font = `${this.fontSize}px monospace`;
+        const char = matrixChars[Math.floor(Math.random() * matrixChars.length)];
+        cCtx.fillStyle = MathEngine.hexToRgbA('#06b6d4', 0.85);
+        cCtx.shadowBlur = 10;
+        cCtx.shadowColor = '#06b6d4';
+        cCtx.fillText(char, this.x, this.y);
+
+        const headChar = matrixChars[Math.floor(Math.random() * matrixChars.length)];
+        cCtx.fillStyle = '#ffffff';
+        cCtx.shadowColor = '#ffffff';
+        cCtx.fillText(headChar, this.x, this.y + this.fontSize);
+        cCtx.shadowBlur = 0;
+      }
+    }
+
+    class ShockwaveRing {
+      constructor(x, y, maxR) {
+        this.x = x;
+        this.y = y;
+        this.radius = 2;
+        this.maxRadius = maxR || 350;
+        this.opacity = 1;
+        this.color = Math.random() > 0.5 ? ARCHIVERSE_STATE.baseColorHex : ARCHIVERSE_STATE.accentColorHex;
+        audioSynth.playShockwavePulse();
+      }
+
+      update() {
+        this.radius += 10 * ARCHIVERSE_STATE.speedMultiplier;
+        this.opacity = 1 - (this.radius / this.maxRadius);
+      }
+
+      draw(cCtx) {
+        if (this.opacity <= 0) return;
+        cCtx.beginPath();
+        cCtx.arc(this.x, this.y, Math.max(0.1, this.radius), 0, Math.PI * 2);
+        cCtx.strokeStyle = MathEngine.hexToRgbA(this.color, this.opacity);
+        cCtx.lineWidth = 4;
+        cCtx.shadowBlur = 30;
+        cCtx.shadowColor = this.color;
+        cCtx.stroke();
+        cCtx.shadowBlur = 0;
+      }
+    }
+
+    class FloatingHexData {
+      constructor(x, y, text) {
+        this.x = x;
+        this.y = y;
+        this.text = text;
+        this.opacity = 1;
+        this.vy = MathEngine.randomRange(-2, -0.8);
+      }
+
+      update() {
+        this.y += this.vy;
+        this.opacity -= 0.015;
+      }
+
+      draw(cCtx) {
+        if (this.opacity <= 0) return;
+        cCtx.font = '11px monospace';
+        cCtx.fillStyle = MathEngine.hexToRgbA('#06b6d4', this.opacity);
+        cCtx.shadowBlur = 8;
+        cCtx.shadowColor = '#06b6d4';
+        cCtx.fillText(this.text, this.x, this.y);
+        cCtx.shadowBlur = 0;
+      }
+    }
+
+    function renderConstellationLines() {
+      const maxDistance = 150;
+      const len = particleContainer.length;
+
+      for (let a = 0; a < len; a++) {
+        for (let b = a + 1; b < len; b++) {
+          const dx = particleContainer[a].x - particleContainer[b].x;
+          const dy = particleContainer[a].y - particleContainer[b].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+
+          if (dist < maxDistance) {
+            const alpha = (1 - (dist / maxDistance)) * 0.4;
+            ctx.beginPath();
+            ctx.moveTo(particleContainer[a].x, particleContainer[a].y);
+            ctx.lineTo(particleContainer[b].x, particleContainer[b].y);
+            ctx.strokeStyle = MathEngine.hexToRgbA('#06b6d4', alpha);
+            ctx.lineWidth = 1;
+            ctx.stroke();
+          }
+        }
+      }
+    }
+
+    function renderCyberGrid() {
+      const spacing = 50;
+      const w = canvas.width;
+      const h = canvas.height;
+
+      ctx.strokeStyle = MathEngine.hexToRgbA('#06b6d4', 0.08);
+      ctx.lineWidth = 1;
+
+      for (let x = 0; x < w; x += spacing) {
+        ctx.beginPath();
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x, h);
+        ctx.stroke();
+      }
+
+      for (let y = 0; y < h; y += spacing) {
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.lineTo(w, y);
+        ctx.stroke();
+      }
+    }
+
+    function reinitEngine() {
+      width = canvas.width = root.clientWidth;
+      height = canvas.height = root.clientHeight;
+
+      particleContainer = [];
+      matrixColumnContainer = [];
+
+      for (let i = 0; i < ARCHIVERSE_STATE.targetParticleCount; i++) {
+        particleContainer.push(new QuantumParticle(width, height));
+      }
+
+      const colCount = Math.floor(width / 22);
+      for (let i = 0; i < colCount; i++) {
+        matrixColumnContainer.push(new MatrixRainColumn(i * 22, height));
+      }
+
+      const hudCount = document.getElementById('hud-particle-count');
+      if (hudCount) hudCount.innerText = particleContainer.length;
+
+      logTerminal(`Engine Reinitialized: ${particleContainer.length} Particle Nodes.`);
+    }
+
+    function masterRenderLoop(timestamp) {
+      ARCHIVERSE_STATE.frameCount++;
+
+      if (timestamp >= ARCHIVERSE_STATE.lastTimestamp + 1000) {
+        ARCHIVERSE_STATE.fps = Math.round((ARCHIVERSE_STATE.frameCount * 1000) / (timestamp - ARCHIVERSE_STATE.lastTimestamp));
+        const hudFps = document.getElementById('hud-fps-count');
+        if (hudFps) hudFps.innerText = `${ARCHIVERSE_STATE.fps} FPS`;
+
+        ARCHIVERSE_STATE.frameCount = 0;
+        ARCHIVERSE_STATE.lastTimestamp = timestamp;
+      }
+
+      const fadeAlpha = ARCHIVERSE_STATE.mode === 'MATRIX_RAIN' ? 0.15 : 0.28;
+      ctx.fillStyle = `rgba(3, 7, 18, ${fadeAlpha})`;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      if (ARCHIVERSE_STATE.mode === 'MATRIX_RAIN') {
+        matrixColumnContainer.forEach(col => {
+          col.update(height);
+          col.draw(ctx);
+        });
+      } else {
+        if (ARCHIVERSE_STATE.mode === 'NEURAL_NET') {
+          renderCyberGrid();
+          renderConstellationLines();
+        } else if (ARCHIVERSE_STATE.mode === 'QUANTUM_CORE') {
+          renderConstellationLines();
+        }
+
+        particleContainer.forEach(p => {
+          p.update(width, height);
+          p.draw(ctx);
+        });
+      }
+
+      shockwaveContainer.forEach((sw, idx) => {
+        sw.update();
+        sw.draw(ctx);
+        if (sw.opacity <= 0) shockwaveContainer.splice(idx, 1);
+      });
+
+      floatingHexContainer.forEach((ft, idx) => {
+        ft.update();
+        ft.draw(ctx);
+        if (ft.opacity <= 0) floatingHexContainer.splice(idx, 1);
+      });
+
+      requestAnimationFrame(masterRenderLoop);
+    }
+
+    root.addEventListener('mousemove', (e) => {
+      const rect = canvas.getBoundingClientRect();
+      pointer.x = e.clientX - rect.left;
+      pointer.y = e.clientY - rect.top;
+
+      if (Math.random() < 0.08) {
+        const hex = '0x' + Math.floor(Math.random() * 65535).toString(16).toUpperCase();
+        floatingHexContainer.push(new FloatingHexData(pointer.x + 15, pointer.y - 15, hex));
+      }
+    });
+
+    root.addEventListener('mouseleave', () => {
+      pointer.x = null;
+      pointer.y = null;
+    });
+
+    root.addEventListener('click', (e) => {
+      if (e.target.tagName === 'BUTTON' || e.target.closest('button')) return;
+
+      const rect = canvas.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      shockwaveContainer.push(new ShockwaveRing(x, y, 400));
+      logTerminal(`Manual Shockwave Dispatched at (${Math.round(x)}, ${Math.round(y)})`);
+    });
+
+    window.addEventListener('resize', reinitEngine);
+
+    window.ArchiverseEngine = {
+      setMode: function(modeName) {
+        ARCHIVERSE_STATE.mode = modeName;
+        logTerminal(`Subsystem Mode Changed To: [${modeName}]`);
+
+        const btnIds = ['btn-mode-core', 'btn-mode-matrix', 'btn-mode-neural', 'btn-mode-singularity'];
+        btnIds.forEach(id => {
+          const btn = document.getElementById(id);
+          if (btn) {
+            btn.className = "px-4 py-2 text-xs font-bold rounded-xl transition-all border border-transparent hover:border-cyan-500/40 text-slate-400 hover:text-cyan-300";
+          }
+        });
+      },
+
+      toggleGravity: function() {
+        ARCHIVERSE_STATE.forceAttract = !ARCHIVERSE_STATE.forceAttract;
+        const text = ARCHIVERSE_STATE.forceAttract ? 'ATTRACT_MODE' : 'REPEL_MODE';
+        const hudForce = document.getElementById('hud-force-mode');
+        if (hudForce) hudForce.innerText = text;
+        logTerminal(`Force Field Modulated: ${text}`);
+      },
+
+      toggleAudio: function() {
+        audioSynth.init();
+        ARCHIVERSE_STATE.audioEnabled = !ARCHIVERSE_STATE.audioEnabled;
+
+        const icon = document.getElementById('audio-icon');
+        const text = document.getElementById('audio-text');
+
+        if (ARCHIVERSE_STATE.audioEnabled) {
+          if (icon) icon.innerText = '🔊';
+          if (text) text.innerText = 'AUDIO_ON';
+          logTerminal('Synthesizer Engine Active.');
+        } else {
+          if (icon) icon.innerText = '🔇';
+          if (text) text.innerText = 'AUDIO_OFF';
+          logTerminal('Synthesizer Muted.');
+        }
+      },
+
+      triggerPulse: function(e) {
+        const x = pointer.x || canvas.width / 2;
+        const y = pointer.y || canvas.height / 2;
+        shockwaveContainer.push(new ShockwaveRing(x, y, 350));
+        logTerminal('Matrix Code Pulse Dispatched!');
+      },
+
+      triggerSingularityBurst: function() {
+        const x = canvas.width / 2;
+        const y = canvas.height / 2;
+        shockwaveContainer.push(new ShockwaveRing(x, y, 600));
+        shockwaveContainer.push(new ShockwaveRing(x, y, 300));
+        logTerminal('Singularity Energy Burst Emitted!');
+      }
+    };
+
+    reinitEngine();
+    requestAnimationFrame(masterRenderLoop);
+    logTerminal('Tasim Quantum Archiverse Fully Online.');
+  }
+})();
+</script>
 
     <canvas id="particleCanvas" class="fixed top-0 left-0 w-full h-full pointer-events-none z-0"></canvas>
 
