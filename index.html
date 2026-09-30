@@ -43,6 +43,19 @@
             font-family: 'Inter', sans-serif;
             transition: background-color 0.4s ease, color 0.4s ease;
         }
+        @keyframes tasimHoloShift {
+  0% { background-position: 0% 50%; filter: drop-shadow(0 0 10px rgba(129,140,248,0.8)); }
+  50% { background-position: 100% 50%; filter: drop-shadow(0 0 20px rgba(232,121,249,0.9)); }
+  100% { background-position: 0% 50%; filter: drop-shadow(0 0 10px rgba(56,189,248,0.8)); }
+}
+
+.gradient-tasim-glow {
+  background: linear-gradient(90deg, #818cf8, #38bdf8, #e879f9, #34d399, #818cf8);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: tasimHoloShift 4s ease infinite;
+}
 
         /* Glassmorphism Classes */
         .glass-card {
@@ -163,13 +176,7 @@
             </div>
 
             <h1 class="text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tight mb-6">
-                Hi, I'm <span class="relative inline-block font-black tracking-tight align-middle text-transparent bg-clip-text overflow-hidden select-none" style="-webkit-background-clip: text; background-clip: text; background-color: #020617;">
-  <span class="opacity-0">Tasim</span>
-  <canvas id="tasimTextCanvas" class="absolute inset-0 w-full h-full pointer-events-none" style="mix-blend-mode: screen;"></canvas>
-  <span class="absolute inset-0 text-transparent bg-clip-text bg-gradient-to-r from-indigo-300/80 via-sky-300/80 to-purple-400/80 pointer-events-none" style="-webkit-background-clip: text; background-clip: text;">
-    Tasim
-  </span>
-</span>
+                <span class="gradient-tasim-glow font-extrabold tracking-tight inline-block text-transparent bg-clip-text select-none">Tasim</span>
             </h1>
 
             <p class="text-xl md:text-2xl font-mono text-gray-400 mb-8 max-w-2xl min-h-[3rem]">
