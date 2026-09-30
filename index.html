@@ -43,18 +43,19 @@
             font-family: 'Inter', sans-serif;
             transition: background-color 0.4s ease, color 0.4s ease;
         }
-        @keyframes tasimHoloShift {
-  0% { background-position: 0% 50%; filter: drop-shadow(0 0 10px rgba(129,140,248,0.8)); }
-  50% { background-position: 100% 50%; filter: drop-shadow(0 0 20px rgba(232,121,249,0.9)); }
-  100% { background-position: 0% 50%; filter: drop-shadow(0 0 10px rgba(56,189,248,0.8)); }
+       @keyframes tasimFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
-
-.gradient-tasim-glow {
-  background: linear-gradient(90deg, #818cf8, #38bdf8, #e879f9, #34d399, #818cf8);
-  background-size: 300% 300%;
+.gradient-tasim-text {
+  background: linear-gradient(135deg, #818cf8 0%, #38bdf8 30%, #e879f9 70%, #34d399 100%);
+  background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: tasimHoloShift 4s ease infinite;
+  background-clip: text;
+  color: transparent;
+  animation: tasimFlow 4s linear infinite;
 }
 
         /* Glassmorphism Classes */
@@ -175,8 +176,8 @@
                 AVAILABLE FOR FREELANCE & FULL-TIME ROLES
             </div>
 
-            <h1 class="text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tight mb-6 text-white">
-  Hi, I'm <span class="gradient-tasim-glow font-extrabold tracking-tight inline-block text-transparent bg-clip-text select-none">Tasim</span>
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tight mb-6">
+  <span class="text-white">Hi, I'm</span> <span class="gradient-tasim-text inline-block">Tasim</span>
 </h1>
             <p class="text-xl md:text-2xl font-mono text-gray-400 mb-8 max-w-2xl min-h-[3rem]">
                 I build <span id="typingText" class="text-cyber-cyan font-semibold"></span><span class="animate-pulse">|</span>
