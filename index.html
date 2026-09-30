@@ -108,6 +108,224 @@
     </style>
 </head>
 <body class="bg-cyber-darker text-gray-100 antialiased relative min-h-screen selection:bg-cyber-cyan selection:text-black dark">
+ 
+    <canvas id="particleCanvas" class="fixed top-0 left-0 w-full h-full pointer-events-none z-0"></canvas>
+
+    <header class="fixed top-0 left-0 w-full z-50 glass-card transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Brand Logo -->
+            <a href="#hero" class="text-2xl font-black font-mono tracking-wider text-white flex items-center gap-2 group">
+                <span class="text-cyber-cyan">&lt;</span>
+                <span class="gradient-text">TASIM</span>
+                <span class="text-cyber-pink">/&gt;</span>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center gap-8 text-sm font-semibold tracking-wide">
+                <a href="#about" class="hover:text-cyber-cyan transition-colors duration-200">/ABOUT</a>
+                <a href="#skills" class="hover:text-cyber-cyan transition-colors duration-200">/SKILLS</a>
+                <a href="#projects" class="hover:text-cyber-cyan transition-colors duration-200">/PROJECTS</a>
+                <a href="#contact" class="hover:text-cyber-cyan transition-colors duration-200">/CONTACT</a>
+            </nav>
+
+            <!-- Theme Toggle & Action Button -->
+            <div class="flex items-center gap-4">
+                <button id="themeToggle" class="p-2.5 rounded-full border border-cyber-cyan/30 text-cyber-cyan hover:bg-cyber-cyan/10 transition-all duration-300 focus:outline-none" title="Toggle Theme">
+                    <i class="fas fa-moon id="themeIcon" class="text-lg"></i>
+                </button>
+                
+                <a href="#contact" class="hidden sm:inline-block px-5 py-2.5 rounded-full bg-gradient-to-r from-cyber-cyan to-cyber-purple text-black font-bold text-xs uppercase tracking-wider hover:opacity-90 transition-all duration-300 transform hover:-translate-y-0.5 box-glow-cyan">
+                    Hire Me
+                </a>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" class="md:hidden text-2xl text-cyber-cyan focus:outline-none">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobileMenu" class="hidden md:hidden border-t border-cyber-cyan/10 bg-cyber-dark/95 backdrop-blur-md px-6 py-4 flex flex-col gap-4 text-sm font-mono">
+            <a href="#about" class="hover:text-cyber-cyan py-1">/ABOUT</a>
+            <a href="#skills" class="hover:text-cyber-cyan py-1">/SKILLS</a>
+            <a href="#projects" class="hover:text-cyber-cyan py-1">/PROJECTS</a>
+            <a href="#contact" class="hover:text-cyber-cyan py-1">/CONTACT</a>
+        </div>
+    </header>
+
+    <section id="hero" class="relative min-h-screen flex items-center justify-center pt-24 px-6 z-10">
+        <div class="max-w-5xl mx-auto text-center flex flex-col items-center">
+            
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-cyber-cyan/30 bg-cyber-cyan/5 text-cyber-cyan text-xs font-mono mb-6 backdrop-blur-sm animate-pulse">
+                <span class="w-2 h-2 rounded-full bg-cyber-cyan animate-ping"></span>
+                AVAILABLE FOR FREELANCE & FULL-TIME ROLES
+            </div>
+
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tight mb-6">
+                Hi, I'm <span class="gradient-text">Tasim</span>
+            </h1>
+
+            <p class="text-xl md:text-2xl font-mono text-gray-400 mb-8 max-w-2xl min-h-[3rem]">
+                I build <span id="typingText" class="text-cyber-cyan font-semibold"></span><span class="animate-pulse">|</span>
+            </p>
+
+            <p class="text-gray-400 text-base md:text-lg max-w-xl mb-10 leading-relaxed">
+                Specializing in interactive web applications, high-performance canvas visualizers, and seamless web-to-mobile digital experiences.
+            </p>
+
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#projects" class="px-8 py-4 rounded-xl bg-cyber-cyan text-black font-extrabold text-sm tracking-wider uppercase hover:bg-white transition-all duration-300 box-glow-cyan transform hover:-translate-y-1">
+                    Explore Projects
+                </a>
+                <a href="#contact" class="px-8 py-4 rounded-xl border border-cyber-cyan/40 glass-card text-cyber-cyan hover:bg-cyber-cyan/10 font-bold text-sm tracking-wider uppercase transition-all duration-300 transform hover:-translate-y-1">
+                    Get In Touch
+                </a>
+            </div>
+
+            <!-- Scroll Down Indicator -->
+            <a href="#about" class="absolute bottom-10 left-1/2 -translate-x-1/2 text-cyber-cyan/60 hover:text-cyber-cyan animate-bounce text-2xl">
+                <i class="fas fa-chevron-down"></i>
+            </a>
+        </div>
+    </section>
+
+    <section id="about" class="py-24 px-6 relative z-10">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex items-center gap-4 mb-12">
+                <h2 class="text-3xl md:text-4xl font-extrabold font-mono tracking-tight text-white">
+                    <span class="text-cyber-cyan">01.</span> ABOUT_ME
+                </h2>
+                <div class="h-[1px] bg-cyber-cyan/20 flex-grow"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6 text-gray-300 leading-relaxed text-base md:text-lg">
+                    <p>
+                        Hello! I'm <strong class="text-cyber-cyan">Tasim</strong>, a passionate web developer focused on transforming creative ideas into functional, visually striking digital products.
+                    </p>
+                    <p>
+                        My journey began with exploring basic web mechanics and rapidly evolved into building complex canvas simulations, Web Audio sound visualizers, and cross-platform web applications.
+                    </p>
+                    <p>
+                        Whether designing interactive user interfaces or converting web apps into native Android APKs, I am dedicated to clean code, snappy responsiveness, and high-performance user experiences.
+                    </p>
+
+                    <!-- Key Metrics -->
+                    <div class="grid grid-cols-3 gap-4 pt-4 border-t border-cyber-cyan/10">
+                        <div class="text-center">
+                            <span class="block text-3xl font-extrabold text-cyber-cyan font-mono">10+</span>
+                            <span class="text-xs text-gray-400">Projects Built</span>
+                        </div>
+                        <div class="text-center">
+                            <span class="block text-3xl font-extrabold text-cyber-pink font-mono">100%</span>
+                            <span class="text-xs text-gray-400">Responsive</span>
+                        </div>
+                        <div class="text-center">
+                            <span class="block text-3xl font-extrabold text-cyber-purple font-mono">24/7</span>
+                            <span class="text-xs text-gray-400">Learning Mindset</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cyber Avatar / Visual Element -->
+                <div class="relative group mx-auto w-full max-w-sm">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-cyber-cyan via-cyber-purple to-cyber-pink rounded-2xl blur opacity-50 group-hover:opacity-100 transition duration-500"></div>
+                    <div class="relative glass-card rounded-2xl p-8 text-center flex flex-col items-center">
+                        <div class="w-32 h-32 rounded-full bg-gradient-to-tr from-cyber-cyan to-cyber-purple flex items-center justify-center text-5xl text-black font-extrabold mb-6 box-glow-cyan">
+                            T
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Tasim Developer</h3>
+                        <p class="text-xs font-mono text-cyber-cyan mb-4">FRONTEND & CANVAS SPECIALIST</p>
+                        <div class="flex gap-4 text-xl text-gray-400">
+                            <a href="https://github.com/firstsure31-collab" target="_blank" class="hover:text-cyber-cyan transition-colors"><i class="fab fa-github"></i></a>
+                            <a href="#" class="hover:text-cyber-pink transition-colors"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" class="hover:text-cyber-purple transition-colors"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="py-24 px-6 relative z-10 glass-card bg-opacity-30">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex items-center gap-4 mb-12">
+                <h2 class="text-3xl md:text-4xl font-extrabold font-mono tracking-tight text-white">
+                    <span class="text-cyber-cyan">02.</span> SKILLS_&_TOOLS
+                </h2>
+                <div class="h-[1px] bg-cyber-cyan/20 flex-grow"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Skill Item 1 -->
+                <div class="space-y-2">
+                    <div class="flex justify-between text-sm font-mono">
+                        <span class="text-gray-200"><i class="fab fa-html5 text-orange-500 mr-2"></i>HTML5 & Semantic Structure</span>
+                        <span class="text-cyber-cyan font-bold">95%</span>
+                    </div>
+                    <div class="w-full bg-gray-800 h-2.5 rounded-full overflow-hidden border border-cyber-cyan/20">
+                        <div class="bg-gradient-to-r from-cyber-cyan to-blue-500 h-full rounded-full w-[95%] transition-all duration-1000"></div>
+                    </div>
+                </div>
+
+                <!-- Skill Item 2 -->
+                <div class="space-y-2">
+                    <div class="flex justify-between text-sm font-mono">
+                        <span class="text-gray-200"><i class="fab fa-css3-alt text-blue-500 mr-2"></i>CSS3 & Tailwind CSS</span>
+                        <span class="text-cyber-cyan font-bold">90%</span>
+                    </div>
+                    <div class="w-full bg-gray-800 h-2.5 rounded-full overflow-hidden border border-cyber-cyan/20">
+                        <div class="bg-gradient-to-r from-blue-500 to-cyber-purple h-full rounded-full w-[90%] transition-all duration-1000"></div>
+                    </div>
+                </div>
+
+                <!-- Skill Item 3 -->
+                <div class="space-y-2">
+                    <div class="flex justify-between text-sm font-mono">
+                        <span class="text-gray-200"><i class="fab fa-js text-yellow-400 mr-2"></i>JavaScript (ES6+)</span>
+                        <span class="text-cyber-cyan font-bold">85%</span>
+                    </div>
+                    <div class="w-full bg-gray-800 h-2.5 rounded-full overflow-hidden border border-cyber-cyan/20">
+                        <div class="bg-gradient-to-r from-yellow-400 to-cyber-pink h-full rounded-full w-[85%] transition-all duration-1000"></div>
+                    </div>
+                </div>
+
+                <!-- Skill Item 4 -->
+                <div class="space-y-2">
+                    <div class="flex justify-between text-sm font-mono">
+                        <span class="text-gray-200"><i class="fas fa-paint-brush text-cyber-cyan mr-2"></i>Canvas API & 2D Physics</span>
+                        <span class="text-cyber-cyan font-bold">88%</span>
+                    </div>
+                    <div class="w-full bg-gray-800 h-2.5 rounded-full overflow-hidden border border-cyber-cyan/20">
+                        <div class="bg-gradient-to-r from-cyber-cyan to-cyber-pink h-full rounded-full w-[88%] transition-all duration-1000"></div>
+                    </div>
+                </div>
+
+                <!-- Skill Item 5 -->
+                <div class="space-y-2">
+                    <div class="flex justify-between text-sm font-mono">
+                        <span class="text-gray-200"><i class="fab fa-github text-white mr-2"></i>Git & GitHub Pages Deployment</span>
+                        <span class="text-cyber-cyan font-bold">82%</span>
+                    </div>
+                    <div class="w-full bg-gray-800 h-2.5 rounded-full overflow-hidden border border-cyber-cyan/20">
+                        <div class="bg-gradient-to-r from-cyber-purple to-cyber-cyan h-full rounded-full w-[82%] transition-all duration-1000"></div>
+                    </div>
+                </div>
+
+                <!-- Skill Item 6 -->
+                <div class="space-y-2">
+                    <div class="flex justify-between text-sm font-mono">
+                        <span class="text-gray-200"><i class="fas fa-mobile-alt text-green-400 mr-2"></i>PWA & Mobile Conversion (APK)</span>
+                        <span class="text-cyber-cyan font-bold">80%</span>
+                    </div>
+                    <div class="w-full bg-gray-800 h-2.5 rounded-full overflow-hidden border border-cyber-cyan/20">
+                        <div class="bg-gradient-to-r from-green-400 to-cyber-cyan h-full rounded-full w-[80%] transition-all duration-1000"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- ================================================================= -->
 <!-- TASIM QUANTUM ARCHIVERSE - FULL WORKING SINGLE FILE               -->
 <!-- ================================================================= -->
@@ -738,224 +956,6 @@
   }
 })();
 </script>
-
-    <canvas id="particleCanvas" class="fixed top-0 left-0 w-full h-full pointer-events-none z-0"></canvas>
-
-    <header class="fixed top-0 left-0 w-full z-50 glass-card transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <!-- Brand Logo -->
-            <a href="#hero" class="text-2xl font-black font-mono tracking-wider text-white flex items-center gap-2 group">
-                <span class="text-cyber-cyan">&lt;</span>
-                <span class="gradient-text">TASIM</span>
-                <span class="text-cyber-pink">/&gt;</span>
-            </a>
-
-            <!-- Desktop Navigation -->
-            <nav class="hidden md:flex items-center gap-8 text-sm font-semibold tracking-wide">
-                <a href="#about" class="hover:text-cyber-cyan transition-colors duration-200">/ABOUT</a>
-                <a href="#skills" class="hover:text-cyber-cyan transition-colors duration-200">/SKILLS</a>
-                <a href="#projects" class="hover:text-cyber-cyan transition-colors duration-200">/PROJECTS</a>
-                <a href="#contact" class="hover:text-cyber-cyan transition-colors duration-200">/CONTACT</a>
-            </nav>
-
-            <!-- Theme Toggle & Action Button -->
-            <div class="flex items-center gap-4">
-                <button id="themeToggle" class="p-2.5 rounded-full border border-cyber-cyan/30 text-cyber-cyan hover:bg-cyber-cyan/10 transition-all duration-300 focus:outline-none" title="Toggle Theme">
-                    <i class="fas fa-moon id="themeIcon" class="text-lg"></i>
-                </button>
-                
-                <a href="#contact" class="hidden sm:inline-block px-5 py-2.5 rounded-full bg-gradient-to-r from-cyber-cyan to-cyber-purple text-black font-bold text-xs uppercase tracking-wider hover:opacity-90 transition-all duration-300 transform hover:-translate-y-0.5 box-glow-cyan">
-                    Hire Me
-                </a>
-
-                <!-- Mobile Menu Button -->
-                <button id="mobileMenuBtn" class="md:hidden text-2xl text-cyber-cyan focus:outline-none">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </div>
-        </div>
-
-        <!-- Mobile Navigation Menu -->
-        <div id="mobileMenu" class="hidden md:hidden border-t border-cyber-cyan/10 bg-cyber-dark/95 backdrop-blur-md px-6 py-4 flex flex-col gap-4 text-sm font-mono">
-            <a href="#about" class="hover:text-cyber-cyan py-1">/ABOUT</a>
-            <a href="#skills" class="hover:text-cyber-cyan py-1">/SKILLS</a>
-            <a href="#projects" class="hover:text-cyber-cyan py-1">/PROJECTS</a>
-            <a href="#contact" class="hover:text-cyber-cyan py-1">/CONTACT</a>
-        </div>
-    </header>
-
-    <section id="hero" class="relative min-h-screen flex items-center justify-center pt-24 px-6 z-10">
-        <div class="max-w-5xl mx-auto text-center flex flex-col items-center">
-            
-            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-cyber-cyan/30 bg-cyber-cyan/5 text-cyber-cyan text-xs font-mono mb-6 backdrop-blur-sm animate-pulse">
-                <span class="w-2 h-2 rounded-full bg-cyber-cyan animate-ping"></span>
-                AVAILABLE FOR FREELANCE & FULL-TIME ROLES
-            </div>
-
-            <h1 class="text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tight mb-6">
-                Hi, I'm <span class="gradient-text">Tasim</span>
-            </h1>
-
-            <p class="text-xl md:text-2xl font-mono text-gray-400 mb-8 max-w-2xl min-h-[3rem]">
-                I build <span id="typingText" class="text-cyber-cyan font-semibold"></span><span class="animate-pulse">|</span>
-            </p>
-
-            <p class="text-gray-400 text-base md:text-lg max-w-xl mb-10 leading-relaxed">
-                Specializing in interactive web applications, high-performance canvas visualizers, and seamless web-to-mobile digital experiences.
-            </p>
-
-            <div class="flex flex-wrap justify-center gap-4">
-                <a href="#projects" class="px-8 py-4 rounded-xl bg-cyber-cyan text-black font-extrabold text-sm tracking-wider uppercase hover:bg-white transition-all duration-300 box-glow-cyan transform hover:-translate-y-1">
-                    Explore Projects
-                </a>
-                <a href="#contact" class="px-8 py-4 rounded-xl border border-cyber-cyan/40 glass-card text-cyber-cyan hover:bg-cyber-cyan/10 font-bold text-sm tracking-wider uppercase transition-all duration-300 transform hover:-translate-y-1">
-                    Get In Touch
-                </a>
-            </div>
-
-            <!-- Scroll Down Indicator -->
-            <a href="#about" class="absolute bottom-10 left-1/2 -translate-x-1/2 text-cyber-cyan/60 hover:text-cyber-cyan animate-bounce text-2xl">
-                <i class="fas fa-chevron-down"></i>
-            </a>
-        </div>
-    </section>
-
-    <section id="about" class="py-24 px-6 relative z-10">
-        <div class="max-w-6xl mx-auto">
-            <div class="flex items-center gap-4 mb-12">
-                <h2 class="text-3xl md:text-4xl font-extrabold font-mono tracking-tight text-white">
-                    <span class="text-cyber-cyan">01.</span> ABOUT_ME
-                </h2>
-                <div class="h-[1px] bg-cyber-cyan/20 flex-grow"></div>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div class="space-y-6 text-gray-300 leading-relaxed text-base md:text-lg">
-                    <p>
-                        Hello! I'm <strong class="text-cyber-cyan">Tasim</strong>, a passionate web developer focused on transforming creative ideas into functional, visually striking digital products.
-                    </p>
-                    <p>
-                        My journey began with exploring basic web mechanics and rapidly evolved into building complex canvas simulations, Web Audio sound visualizers, and cross-platform web applications.
-                    </p>
-                    <p>
-                        Whether designing interactive user interfaces or converting web apps into native Android APKs, I am dedicated to clean code, snappy responsiveness, and high-performance user experiences.
-                    </p>
-
-                    <!-- Key Metrics -->
-                    <div class="grid grid-cols-3 gap-4 pt-4 border-t border-cyber-cyan/10">
-                        <div class="text-center">
-                            <span class="block text-3xl font-extrabold text-cyber-cyan font-mono">10+</span>
-                            <span class="text-xs text-gray-400">Projects Built</span>
-                        </div>
-                        <div class="text-center">
-                            <span class="block text-3xl font-extrabold text-cyber-pink font-mono">100%</span>
-                            <span class="text-xs text-gray-400">Responsive</span>
-                        </div>
-                        <div class="text-center">
-                            <span class="block text-3xl font-extrabold text-cyber-purple font-mono">24/7</span>
-                            <span class="text-xs text-gray-400">Learning Mindset</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Cyber Avatar / Visual Element -->
-                <div class="relative group mx-auto w-full max-w-sm">
-                    <div class="absolute -inset-1 bg-gradient-to-r from-cyber-cyan via-cyber-purple to-cyber-pink rounded-2xl blur opacity-50 group-hover:opacity-100 transition duration-500"></div>
-                    <div class="relative glass-card rounded-2xl p-8 text-center flex flex-col items-center">
-                        <div class="w-32 h-32 rounded-full bg-gradient-to-tr from-cyber-cyan to-cyber-purple flex items-center justify-center text-5xl text-black font-extrabold mb-6 box-glow-cyan">
-                            T
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2">Tasim Developer</h3>
-                        <p class="text-xs font-mono text-cyber-cyan mb-4">FRONTEND & CANVAS SPECIALIST</p>
-                        <div class="flex gap-4 text-xl text-gray-400">
-                            <a href="https://github.com/firstsure31-collab" target="_blank" class="hover:text-cyber-cyan transition-colors"><i class="fab fa-github"></i></a>
-                            <a href="#" class="hover:text-cyber-pink transition-colors"><i class="fab fa-linkedin"></i></a>
-                            <a href="#" class="hover:text-cyber-purple transition-colors"><i class="fab fa-twitter"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="skills" class="py-24 px-6 relative z-10 glass-card bg-opacity-30">
-        <div class="max-w-6xl mx-auto">
-            <div class="flex items-center gap-4 mb-12">
-                <h2 class="text-3xl md:text-4xl font-extrabold font-mono tracking-tight text-white">
-                    <span class="text-cyber-cyan">02.</span> SKILLS_&_TOOLS
-                </h2>
-                <div class="h-[1px] bg-cyber-cyan/20 flex-grow"></div>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-8">
-                <!-- Skill Item 1 -->
-                <div class="space-y-2">
-                    <div class="flex justify-between text-sm font-mono">
-                        <span class="text-gray-200"><i class="fab fa-html5 text-orange-500 mr-2"></i>HTML5 & Semantic Structure</span>
-                        <span class="text-cyber-cyan font-bold">95%</span>
-                    </div>
-                    <div class="w-full bg-gray-800 h-2.5 rounded-full overflow-hidden border border-cyber-cyan/20">
-                        <div class="bg-gradient-to-r from-cyber-cyan to-blue-500 h-full rounded-full w-[95%] transition-all duration-1000"></div>
-                    </div>
-                </div>
-
-                <!-- Skill Item 2 -->
-                <div class="space-y-2">
-                    <div class="flex justify-between text-sm font-mono">
-                        <span class="text-gray-200"><i class="fab fa-css3-alt text-blue-500 mr-2"></i>CSS3 & Tailwind CSS</span>
-                        <span class="text-cyber-cyan font-bold">90%</span>
-                    </div>
-                    <div class="w-full bg-gray-800 h-2.5 rounded-full overflow-hidden border border-cyber-cyan/20">
-                        <div class="bg-gradient-to-r from-blue-500 to-cyber-purple h-full rounded-full w-[90%] transition-all duration-1000"></div>
-                    </div>
-                </div>
-
-                <!-- Skill Item 3 -->
-                <div class="space-y-2">
-                    <div class="flex justify-between text-sm font-mono">
-                        <span class="text-gray-200"><i class="fab fa-js text-yellow-400 mr-2"></i>JavaScript (ES6+)</span>
-                        <span class="text-cyber-cyan font-bold">85%</span>
-                    </div>
-                    <div class="w-full bg-gray-800 h-2.5 rounded-full overflow-hidden border border-cyber-cyan/20">
-                        <div class="bg-gradient-to-r from-yellow-400 to-cyber-pink h-full rounded-full w-[85%] transition-all duration-1000"></div>
-                    </div>
-                </div>
-
-                <!-- Skill Item 4 -->
-                <div class="space-y-2">
-                    <div class="flex justify-between text-sm font-mono">
-                        <span class="text-gray-200"><i class="fas fa-paint-brush text-cyber-cyan mr-2"></i>Canvas API & 2D Physics</span>
-                        <span class="text-cyber-cyan font-bold">88%</span>
-                    </div>
-                    <div class="w-full bg-gray-800 h-2.5 rounded-full overflow-hidden border border-cyber-cyan/20">
-                        <div class="bg-gradient-to-r from-cyber-cyan to-cyber-pink h-full rounded-full w-[88%] transition-all duration-1000"></div>
-                    </div>
-                </div>
-
-                <!-- Skill Item 5 -->
-                <div class="space-y-2">
-                    <div class="flex justify-between text-sm font-mono">
-                        <span class="text-gray-200"><i class="fab fa-github text-white mr-2"></i>Git & GitHub Pages Deployment</span>
-                        <span class="text-cyber-cyan font-bold">82%</span>
-                    </div>
-                    <div class="w-full bg-gray-800 h-2.5 rounded-full overflow-hidden border border-cyber-cyan/20">
-                        <div class="bg-gradient-to-r from-cyber-purple to-cyber-cyan h-full rounded-full w-[82%] transition-all duration-1000"></div>
-                    </div>
-                </div>
-
-                <!-- Skill Item 6 -->
-                <div class="space-y-2">
-                    <div class="flex justify-between text-sm font-mono">
-                        <span class="text-gray-200"><i class="fas fa-mobile-alt text-green-400 mr-2"></i>PWA & Mobile Conversion (APK)</span>
-                        <span class="text-cyber-cyan font-bold">80%</span>
-                    </div>
-                    <div class="w-full bg-gray-800 h-2.5 rounded-full overflow-hidden border border-cyber-cyan/20">
-                        <div class="bg-gradient-to-r from-green-400 to-cyber-cyan h-full rounded-full w-[80%] transition-all duration-1000"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <section id="projects" class="py-24 px-6 relative z-10">
         <div class="max-w-6xl mx-auto">
