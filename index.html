@@ -1546,71 +1546,129 @@
   </div>
 </div>
 
-<!-- Smart AI Bot Script (Zero Dependencies, Never Fails) -->
-  <script>
-    function toggleAIChat() {
-      const box = document.getElementById('ai-chat-box');
-      box.classList.toggle('hidden');
-      box.classList.toggle('flex');
+<!-- Smart AI Bot Script (Updated with Pricing, Language Switch, and Personal Details) -->
+<script>
+function toggleAIChat() {
+    const box = document.getElementById('ai-chat-box');
+    box.classList.toggle('hidden');
+    box.classList.toggle('flex');
+}
+
+function handleKeyPress(e) {
+    if (e.key === 'Enter') sendAIMessage();
+}
+
+const tasimKnowledgeBase = {
+    name: "Tasim Al Arafat",
+    school: "Jhenaidah Sorkari Uchoo Biddaloi",
+    roll: "9",
+    shift: "Morning",
+    profession: "Creative Developer & UI/UX Enthusiast",
+    skills: ["HTML5", "Tailwind CSS", "JavaScript", "Canvas Animations", "Python"],
+    projects: ["Cyber Portfolio with Particle Effects", "Interactive Web Visualizers"],
+    hobbies: ["Coding futuristic web experiences", "UI designing and problem solving"],
+    futureGoal: "To become a world-class software engineer and build groundbreaking digital experiences.",
+    pricing: {
+        normal: "$10 (ประมาณ/BDT 1,200 Tk)", // Approximate BDT conversion based on standard rates
+        medium: "$30 (BDT 3,600 Tk)",
+        animation: "$99 (BDT 11,800 Tk)",
+        apps: "$50 (BDT 6,000 Tk)"
+    }
+};
+
+let currentLang = "bn"; // Default language is Bengali
+
+function getSmartResponse(input) {
+    const q = input.toLowerCase();
+
+    // Language Detection Switch
+    if (q.includes("english") || q.includes("chat in eng") || q.includes("speak english") || q.includes("talk in english")) {
+        currentLang = "en";
+        return "Switched to English! How can I help you regarding Tasim's portfolio, projects, or pricing?";
+    }
+    if (q.includes("bangla") || q.includes("bhai bangla") || q.includes("banglay") || q.includes("chat in bangla")) {
+        currentLang = "bn";
+        return "বাংলায় কথা শুরু হলো! তাসিমের স্কুল, রোল, স্কিল বা কাজের দাম সম্পর্কে কী জানতে চাও বলো।";
     }
 
-    function handleKeyPress(e) {
-      if (e.key === 'Enter') sendAIMessage();
+    // Pricing & Cost Queries (Direct List)
+    if (q.includes("price") || q.includes("dam") || q.includes("taka") || q.includes("dollar") || q.includes("cost") || q.includes("charge") || q.includes("rate") || q.includes("koto")) {
+        if (currentLang === "en") {
+            return `Here is Tasim's project pricing list:\n• Normal Website: $10 (~1,200 BDT)\n• Medium Web: $30 (~3,600 BDT)\n• Animation/Hard Web: $99 (~11,800 BDT)\n• Mobile Apps: $50 (~6,000 BDT)`;
+        } else {
+            return `তাসিমের বিভিন্ন কাজের প্রাইসিং বা রেট তালিকা নিচে দেওয়া হলো:\n• নরমাল ওয়েবসাইট (Normal Web): ১০ ডলার ($10 / প্রায় ১,২০০ টাকা)\n• মিডিয়াম ওয়েবসাইট (Medium Web): ৩০ ডলার ($30 / প্রায় ৩,৬০০ টাকা)\n• অ্যানিমেশন ও হার্ড ওয়ার্ক (Animation/Hard Web): ৯৯ ডলার ($99 / প্রায় ১১,৮০০ টাকা)\n• অ্যাপস ডেভেলপমেন্ট (Apps): ৫০ ডলার ($50 / প্রায় ৬,০০০ টাকা)`;
+        }
     }
 
-    function getSmartResponse(input) {
-      const q = input.toLowerCase();
-
-      if (q.includes('hi') || q.includes('hello') || q.includes('hey') || q.includes('ki obostha') || q.includes('kemon')) {
-        return "Hey! Ami Tasim-er AI Assistant. Tasim-er skill, portfolio ba services niye kono prosno ache?";
-      } 
-      else if (q.includes('skill') || q.includes('stack') || q.includes('language') || q.includes('html') || q.includes('css') || q.includes('js') || q.includes('tailwind')) {
-        return "Tasim is expert in HTML, CSS, JavaScript, Tailwind CSS, Web Animations, Responsive UI Design, and Git/GitHub!";
-      } 
-      else if (q.includes('project') || q.includes('work') || q.includes('portfolio') || q.includes('koma') || q.includes('banai')) {
-        return "Tasim specializes in modern cyberpunk/neon theme interactive web applications and custom frontend redesigns. You can check his featured projects on this page!";
-      } 
-      else if (q.includes('contact') || q.includes('email') || q.includes('hire') || q.includes('freelance') || q.includes('reach') || q.includes('message') || q.includes('form')) {
-        return "You can hire or message Tasim directly using the 'Get in Touch' form below on this website!";
-      } 
-      else if (q.includes('experience') || q.includes('service') || q.includes('offer')) {
-        return "Tasim offers Custom Website Development, Modern Portfolio Creation, and UI/UX Redesign services with high performance and smooth animations.";
-      } 
-      else if (q.includes('who') || q.includes('tasim') || q.includes('about') || q.includes('ke')) {
-        return "Tasim is a passionate Creative Web Developer specialized in building futuristic, high-performance web applications and UI designs.";
-      } 
-      else {
-        return "Thanks for reaching out! I'm programmed to answer questions about Tasim's skills, projects, and services. Feel free to ask about any of those, or use the contact form to reach him directly!";
-      }
+    // School, Roll, Shift Queries
+    if (q.includes("school") || q.includes("pore") || q.includes("skul") || q.includes("institution")) {
+        return currentLang === "en" 
+            ? `Tasim studies at ${tasimKnowledgeBase.school} (Morning Shift, Roll: ${tasimKnowledgeBase.roll}).`
+            : `তাসিম ঝিনাইদহ সরকারি উচ্চ বিদ্যালয়-এ পড়ে! (মর্নিং শিফট, রোল: ${tasimKnowledgeBase.roll})।`;
+    } 
+    if (q.includes("roll") || q.includes("rull")) {
+        return currentLang === "en"
+            ? `Tasim's roll is ${tasimKnowledgeBase.roll} (${tasimKnowledgeBase.shift} Shift).`
+            : `তাসিমের রোল হলো ${tasimKnowledgeBase.roll} (${tasimKnowledgeBase.shift} শিফট)।`;
+    } 
+    if (q.includes("shift")) {
+        return currentLang === "en"
+            ? `Tasim studies in the ${tasimKnowledgeBase.shift} shift.`
+            : `তাসিম ${tasimKnowledgeBase.shift} শিফটে পড়াশোনা করে।`;
+    }
+    if (q.includes("name") || q.includes("ke") || q.includes("who is")) {
+        return currentLang === "en"
+            ? `He is ${tasimKnowledgeBase.name}, a passionate ${tasimKnowledgeBase.profession} studying at ${tasimKnowledgeBase.school}!`
+            : `সে হলো ${tasimKnowledgeBase.name}, একজন ক্রিয়েটিভ ডেভেলপার এবং ${tasimKnowledgeBase.school}-এর ছাত্র!`;
+    }
+    if (q.includes("skill") || q.includes("code") || q.includes("tech")) {
+        return currentLang === "en"
+            ? `Tasim's core skills: ${tasimKnowledgeBase.skills.join(', ')}.`
+            : `তাসিমের স্কিলগুলো হলো: ${tasimKnowledgeBase.skills.join(', ')}।`;
+    }
+    if (q.includes("project") || q.includes("work")) {
+        return currentLang === "en"
+            ? `Notable projects: ${tasimKnowledgeBase.projects.join(' | ')}.`
+            : `তার উল্লেখযোগ্য প্রজেক্টগুলো: ${tasimKnowledgeBase.projects.join(' | ')}।`;
+    }
+    if (q.includes("hobby") || q.includes("hobbies")) {
+        return currentLang === "en"
+            ? `Hobbies: ${tasimKnowledgeBase.hobbies.join(', ')}.`
+            : `অবসর সময়ে সে যা করতে পছন্দ করে: ${tasimKnowledgeBase.hobbies.join(', ')}।`;
+    }
+    if (q.includes("goal") || q.includes("future")) {
+        return currentLang === "en"
+            ? `Future goal: ${tasimKnowledgeBase.futureGoal}`
+            : `ভবিষ্যতের লক্ষ্য: ${tasimKnowledgeBase.futureGoal}`;
     }
 
-    async function sendAIMessage() {
-      const input = document.getElementById('user-input');
-      const text = input.value.trim();
-      if (!text) return;
+    // Default Fallback
+    return currentLang === "en"
+        ? `Tasim is a student at ${tasimKnowledgeBase.school} (Roll: ${tasimKnowledgeBase.roll}). You can ask about his school, roll, skills, or project pricing!`
+        : `তাসিম ${tasimKnowledgeBase.school}-এর ছাত্র (রোল: ${tasimKnowledgeBase.roll}, মর্নিং শিফট)। তুমি তার স্কুল, রোল, স্কিল বা কাজের দাম (Price) সম্পর্কে জিজ্ঞেস করতে পারো!`;
+}
 
-      const messages = document.getElementById('chat-messages');
+function sendAIMessage() {
+    const inputField = document.getElementById('user-input');
+    const chatMessages = document.getElementById('chat-messages');
+    const text = inputField.value.trim();
+    
+    if (!text) return;
 
-      // User Message UI
-      messages.innerHTML += `<div class="bg-cyan-600/30 border border-cyan-400/30 p-3 rounded-lg max-w-[85%] self-end text-white">${text}</div>`;
-      input.value = '';
-      messages.scrollTop = messages.scrollHeight;
+    // Append User Message
+    chatMessages.innerHTML += `<div class="self-end bg-[#00f3ff]/20 text-white px-3 py-2 rounded-xl max-w-[80%]">${text}</div>`;
+    inputField.value = '';
+    chatMessages.scrollTop = chatMessages.scrollHeight;
 
-      // Thinking Indicator UI
-      const loadingId = 'loading-' + Date.now();
-      messages.innerHTML += `<div id="${loadingId}" class="bg-gray-800/60 p-3 rounded-lg border border-purple-500/20 max-w-[85%] self-start text-gray-400 text-xs italic">Thinking...</div>`;
-      messages.scrollTop = messages.scrollHeight;
-
-      // Fast Local Response
-      setTimeout(() => {
-        const loadingEl = document.getElementById(loadingId);
-        if (loadingEl) loadingEl.remove();
-
-        const replyText = getSmartResponse(text);
-        messages.innerHTML += `<div class="bg-gray-800/60 p-3 rounded-lg border border-purple-500/20 max-w-[85%] self-start text-gray-100">${replyText}</div>`;
-        messages.scrollTop = messages.scrollHeight;
-      }, 500);
-    }
-  </script>
+    // Simulate AI Response Delay
+    setTimeout(() => {
+        const reply = getSmartResponse(text);
+        // Replace newlines with <br> for clean list formatting
+        const formattedReply = reply.replace(/\n/g, '<br>');
+        chatMessages.innerHTML += `<div class="self-start bg-gray-800 text-gray-200 px-3 py-2 rounded-xl max-w-[80%]">${formattedReply}</div>`;
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }, 500);
+}
+</script>
 </body>
 </html>
