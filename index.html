@@ -1733,13 +1733,32 @@ function sendAIMessage() {
 }
 </script>
 <!-- SECRET VAULT FULL WIDGET (BUTTON + MODAL + SCRIPT) -->
-<div id="secretVaultContainer" class="fixed bottom-3 left-3 z-50 font-mono">
-    <!-- Secret Trigger Button (Small Lock Icon) -->
-    <button onclick="openVaultModal()" class="p-2 bg-[#0a0f1d]/60 hover:bg-cyan-500/20 border border-cyan-500/20 hover:border-cyan-400 rounded-lg text-slate-500 hover:text-cyan-400 opacity-40 hover:opacity-100 transition-all duration-300 shadow-sm hover:shadow-[0_0_15px_rgba(6,182,212,0.4)]" title="Encrypted Storage">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-        </svg>
-    </button>
+<!-- SECRET VAULT WIDGET WITH LIVE ANIMATION -->
+<div id="secretVaultContainer" class="fixed bottom-4 left-4 z-50 font-mono">
+    
+    <!-- Animated Lock Button -->
+    <div class="relative group">
+        <!-- Live Neon Glow Ring Effect -->
+        <div class="absolute -inset-0.5 bg-gradient-to-r from-cyan-500 to-fuchsia-600 rounded-xl blur opacity-30 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-pulse"></div>
+        
+        <button onclick="openVaultModal()" class="relative p-2.5 bg-[#080d1a]/80 backdrop-blur-md border border-cyan-500/40 rounded-xl text-cyan-400 hover:text-white transition-all duration-300 shadow-[0_0_15px_rgba(6,182,212,0.2)] hover:shadow-[0_0_25px_rgba(6,182,212,0.6)] flex items-center gap-2">
+            
+            <!-- Pulse Dot -->
+            <span class="relative flex h-2 w-2">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
+            </span>
+
+            <!-- Lock SVG Icon with Rotation on Hover -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 transform group-hover:scale-110 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+            </svg>
+            
+            <span class="text-[10px] font-bold tracking-widest text-cyan-300 opacity-0 group-hover:opacity-100 max-w-0 group-hover:max-w-xs transition-all duration-500 overflow-hidden whitespace-nowrap">
+                VAULT
+            </span>
+        </button>
+    </div>
 
     <!-- Encrypted Modal Popup -->
     <div id="vaultModal" class="hidden fixed inset-0 bg-black/80 backdrop-blur-md z-50 flex items-center justify-center p-4">
@@ -1751,7 +1770,7 @@ function sendAIMessage() {
             <!-- PASSWORD SCREEN -->
             <div id="vaultAuthScreen">
                 <div class="text-center mb-6">
-                    <div class="inline-flex p-3 bg-cyan-500/10 border border-cyan-500/30 rounded-full text-cyan-400 mb-3">
+                    <div class="inline-flex p-3 bg-cyan-500/10 border border-cyan-500/30 rounded-full text-cyan-400 mb-3 animate-bounce">
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                         </svg>
@@ -1766,8 +1785,8 @@ function sendAIMessage() {
                         <p id="vaultError" class="text-xs text-red-400 text-center mt-2 hidden">Access Denied! Incorrect Passcode.</p>
                     </div>
 
-                    <button onclick="unlockVault()" class="w-full py-3 bg-cyan-500 hover:bg-cyan-400 text-black font-bold text-xs uppercase tracking-widest rounded-lg shadow-[0_0_20px_rgba(6,182,212,0.4)] transition-all">
-                        UNCRYPTS & UNLOCK
+                    <button onclick="unlockVault()" class="w-full py-3 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-black font-bold text-xs uppercase tracking-widest rounded-lg shadow-[0_0_20px_rgba(6,182,212,0.4)] transition-all">
+                        UNCRYPT & UNLOCK
                     </button>
                 </div>
             </div>
@@ -1793,7 +1812,6 @@ function sendAIMessage() {
         </div>
     </div>
 </div>
-
 <script>
 const VAULT_PASSCODE = "990969"; 
 let secretFiles = [
