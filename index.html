@@ -1,6 +1,55 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
+    <style>
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    font-family: sans-serif;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+}
+
+.status-badge.online {
+    background: rgba(16, 185, 129, 0.15);
+    color: #10B981;
+    border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.status-badge.offline {
+    background: rgba(239, 68, 68, 0.15);
+    color: #EF4444;
+    border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.status-badge.online .status-dot {
+    background-color: #10B981;
+    box-shadow: 0 0 10px #10B981;
+    animation: pulse-green 1.5s infinite;
+}
+
+.status-badge.offline .status-dot {
+    background-color: #EF4444;
+}
+
+@keyframes pulse-green {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+    70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+</style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tasim | Creative Developer Portfolio</title>
@@ -1341,6 +1390,11 @@ function renderVaultFiles() {
         <textarea rows="4" name="message" required placeholder="Let's build something amazing together..." class="w-full px-4 py-3 rounded-xl bg-cyber-dark/80 border border-cyber-cyan/20 text-white focus:border-cyber-cyan outline-none transition-all"></textarea>
     </div>
     <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-cyber-cyan to-cyber-purple text-black font-extrabold text-sm uppercase tracking-wider hover:shadow-[0_0_20px_rgba(0,243,255,0.4)] transition-all flex items-center justify-center gap-2">
+        <!-- Live AI Status Badge -->
+<div id="ai-status-container" class="status-badge offline">
+    <span class="status-dot"></span>
+    <span id="ai-status-text">AI Agent Offline</span>
+</div>
         Send Message <i class="fas fa-paper-plane ml-2"></i>
     </button>
                <input type="hidden" name="_subject" value="Formspree Inquiry">
@@ -1871,6 +1925,38 @@ function renderVaultFiles() {
         container.appendChild(item);
     });
 }
+</script>
+    <script>
+const STATUS_BIN_URL = "https://api.jsonbin.io/v3/b/6717a61de41b4d34e447936a/latest";
+
+async function checkAIAgentStatus() {
+    const container = document.getElementById("ai-status-container");
+    const textElement = document.getElementById("ai-status-text");
+
+    try {
+        const response = await fetch(STATUS_BIN_URL, { cache: "no-store" });
+        const data = await response.json();
+        
+        const lastPingTimestamp = data.record.timestamp;
+        const currentTimestamp = Math.floor(Date.now() / 1000);
+        
+        // If last update was within 25 seconds, it's ONLINE
+        if (currentTimestamp - lastPingTimestamp <= 25) {
+            container.className = "status-badge online";
+            textElement.innerText = "● AI Agent Active & Online";
+        } else {
+            container.className = "status-badge offline";
+            textElement.innerText = "● AI Agent Offline";
+        }
+    } catch (err) {
+        container.className = "status-badge offline";
+        textElement.innerText = "● AI Agent Offline";
+    }
+}
+
+// Check every 5 seconds
+setInterval(checkAIAgentStatus, 5000);
+checkAIAgentStatus();
 </script>
 </body>
 </html>
