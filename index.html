@@ -1934,9 +1934,13 @@ async function checkAIAgentStatus() {
     const textElement = document.getElementById("ai-status-text");
 
     try {
-        const response = await fetch(STATUS_BIN_URL, { cache: "no-store" });
-        const data = await response.json();
-        
+    const response = await fetch(STATUS_BIN_URL, { 
+        cache: "no-store",
+        headers: {
+            "X-Master-Key": "$2a$10$NK1xWqxTIKLO4JpizqJDQ.3IAaQCNVJw2NJdJR.DE0nSqgR7vmCFa"
+        }
+    });
+    const data = await response.json();
         const lastPingTimestamp = data.record.timestamp;
         const currentTimestamp = Math.floor(Date.now() / 1000);
         
